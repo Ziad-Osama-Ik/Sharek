@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sharek – شاركْ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--p:#623A59;--pp:#4A2A43;--or:#A27CA0;--ro:#D9989C;--rs:#F6E8EA;--bg:#F7F5F2;--sf:#fff;--sa:#F1EDF1;--tx:#28232A;--mu:#69616B;--bd:#E5DEE5;--ok:#25785C;--wa:#8A5A1F;--er:#B83E50;--in:#5D5570;--on:#fff;--fr:#d8cfd6}
+:root:not([data-theme="light"]){color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--p:#D4B5D8;--pp:#E2CBE5;--or:#BFA2C6;--ro:#E6ADB0;--rs:#3a2a33;--bg:#151219;--sf:#201B25;--sa:#2C2531;--tx:#F6F1F5;--mu:#C3B8C5;--bd:#403746;--ok:#7ED0AB;--wa:#F3C77C;--er:#F29AA5;--in:#C6B9E0;--on:#2B1E30;--fr:#0e0b11}}
+:root[data-theme="dark"]{--p:#D4B5D8;--pp:#E2CBE5;--or:#BFA2C6;--ro:#E6ADB0;--rs:#3a2a33;--bg:#151219;--sf:#201B25;--sa:#2C2531;--tx:#F6F1F5;--mu:#C3B8C5;--bd:#403746;--ok:#7ED0AB;--wa:#F3C77C;--er:#F29AA5;--in:#C6B9E0;--on:#2B1E30;--fr:#0e0b11;color-scheme:dark}
+*{box-sizing:border-box;margin:0}html,body{height:100%}
+body{font-family:'IBM Plex Sans Arabic','Inter',system-ui,sans-serif;background:var(--fr);color:var(--tx);display:flex;justify-content:center;align-items:center;font-size:14px}
+[dir=ltr] body,[dir=ltr]{font-family:'Inter','IBM Plex Sans Arabic',system-ui,sans-serif}
+.ph{width:390px;max-width:100%;height:min(844px,100%);background:var(--bg);display:flex;flex-direction:column;overflow:hidden;position:relative;border-radius:32px;border:1px solid var(--bd)}
+@media(max-width:430px){.ph{border-radius:0;border:0;height:100%}}
+.demo{background:var(--sa);padding:6px 10px;display:flex;gap:6px;align-items:center;font-size:11px;border-bottom:1px solid var(--bd);flex-wrap:wrap}
+.demo b{background:var(--ro);color:#28232A;padding:1px 6px;border-radius:6px}
+select,input,textarea{font:inherit;color:var(--tx);background:var(--sf);border:1px solid var(--bd);border-radius:13px;padding:11px 12px;width:100%;min-height:44px}
+.demo select{width:auto;min-height:30px;padding:3px 6px;font-size:11px;border-radius:8px}
+.demo button{min-height:30px;padding:3px 8px;font-size:11px;border-radius:8px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer}
+main{flex:1;overflow-y:auto;padding:16px 16px 12px}
+h1{font-size:24px;font-weight:700;margin-bottom:4px}h2{font-size:16px;font-weight:600;margin:16px 0 8px}
+.mu{color:var(--mu);font-size:12px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:14px;margin-bottom:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:15px;border:0;background:var(--p);color:var(--on);font:inherit;font-weight:600;width:100%;cursor:pointer;margin-top:8px}
+.btn:active{background:var(--pp)}.btn.s{background:var(--sa);color:var(--tx);border:1px solid var(--bd)}.btn.d{background:var(--er);color:#fff}.btn.sm{min-height:40px;width:auto;padding:0 14px;margin:0}
+.btn:focus-visible,select:focus-visible,input:focus-visible,.nav button:focus-visible{outline:2px solid var(--or);outline-offset:2px}
+.row{display:flex;gap:8px;align-items:center}.sp{justify-content:space-between}.g{gap:8px;display:flex;flex-wrap:wrap}
+label{display:block;font-size:12px;color:var(--mu);margin:10px 0 4px;font-weight:500}
+.tag{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--sa);color:var(--in);font-weight:500;white-space:nowrap}
+.tag.ok{color:var(--ok)}.tag.wa{color:var(--wa)}.tag.er{color:var(--er)}.tag.w{background:var(--rs);color:var(--pp)}
+:root[data-theme=dark] .tag.w{color:var(--ro)}
+.nav{display:flex;border-top:1px solid var(--bd);background:var(--sf);padding-bottom:env(safe-area-inset-bottom,0)}
+.nav button{flex:1;min-height:56px;border:0;background:none;color:var(--mu);font:inherit;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.nav button.on{color:var(--p);font-weight:700}.nav svg{width:22px;height:22px}
+.chip{border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:20px;padding:8px 12px;font:inherit;font-size:12px;cursor:pointer;min-height:36px}
+.chip.on{background:var(--p);color:var(--on);border-color:var(--p)}
+.route{display:flex;gap:10px;align-items:stretch;margin:6px 0}.route i{width:10px;border-radius:5px;background:linear-gradient(var(--p),var(--ro))}
+.map{height:200px;border-radius:15px;position:relative;overflow:hidden;background:var(--sa);touch-action:none;border:1px solid var(--bd);background-image:linear-gradient(var(--bd) 1px,transparent 1px),linear-gradient(90deg,var(--bd) 1px,transparent 1px);background-size:32px 32px}
+.pin{position:absolute;width:30px;height:30px;margin:-30px 0 0 -15px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--p);border:3px solid var(--sf);cursor:grab}
+.bub{max-width:80%;padding:8px 12px;border-radius:15px;background:var(--sa);margin-bottom:6px}.bub.me{background:var(--p);color:var(--on);margin-inline-start:auto}
+.stat{flex:1;text-align:center;background:var(--sa);border-radius:13px;padding:8px}.stat b{display:block;font-size:20px}
+.toast{position:absolute;bottom:72px;inset-inline:16px;background:var(--tx);color:var(--bg);padding:10px 14px;border-radius:13px;text-align:center;z-index:9}
+.back{background:none;border:0;color:var(--p);font:inherit;font-weight:600;cursor:pointer;min-height:40px;padding:0}
+.em{text-align:center;padding:24px 8px}
+</style></head><body><div class="ph" id="app"></div>
+<script>
+const KEY='sharek_v1',LOC=['WE School, Sheikh Zayed','Mohandessin','Maadi','Nasr City','New Cairo','6th October','Giza','Cairo','Alexandria','Hurghada'];
+const AR={'WE School, Sheikh Zayed':'مدرسة WE للتكنولوجيا التطبيقية، الشيخ زايد','Mohandessin':'المهندسين','Maadi':'المعادي','Nasr City':'مدينة نصر','New Cairo':'القاهرة الجديدة','6th October':'6 أكتوبر','Giza':'الجيزة','Cairo':'القاهرة','Alexandria':'الإسكندرية','Hurghada':'الغردقة'};
+const PAY=['Cash','InstaPay','Vodafone Cash','Etisalat Cash','WE Pay','Orange Cash'],PAYAR=['كاش','إنستاباي','فودافون كاش','اتصالات كاش','WE Pay','أورنج كاش'];
+const DAYS=['Sat','Sun','Mon','Tue','Wed','Thu','Fri'],DAYSAR=['سبت','أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة'];
+const TODAY='2026-11-23';
+const seed=()=>({lang:'ar',theme:'system',me:'d1',stack:['home'],draft:null,n:10,comm:10,ptsPerTrip:10,ptsPerEGP:0.5,
+U:{d1:{n:'Omar Hassan',a:'عمر حسن',g:'m',r:'d',car:'Hyundai Elantra · ABC 1234',v:'approved',rt:4.8},d2:{n:'Mona Adel',a:'منى عادل',g:'f',r:'d',car:'Kia Picanto · XYZ 5521',v:'approved',rt:4.9},d3:{n:'New Driver',a:'سائق جديد',g:'m',r:'d',car:'Not submitted',v:'review',rt:0},p1:{n:'Sara Khaled',a:'سارة خالد',g:'f',r:'p',rt:4.7},p2:{n:'Ahmed Samy',a:'أحمد سامي',g:'m',r:'p',rt:4.6},b1:{n:'Youssef Nabil',a:'يوسف نبيل',g:'m',r:'p',rt:4.5},b2:{n:'Laila Hany',a:'ليلى هاني',g:'f',r:'p',rt:4.8}},
+trips:[{id:1,d:'d2',from:'Maadi',to:'Nasr City',date:TODAY,time:'08:30',seats:3,lug:true,women:true,pays:['Cash','InstaPay'],price:40,rec:[],note:'',st:'published'},{id:2,d:'d1',from:'Cairo',to:'Alexandria',date:TODAY,time:'07:00',seats:4,lug:true,women:false,pays:['Cash','Vodafone Cash'],price:150,rec:[],note:'',st:'published'}],
+reqs:[],buddies:[{u:'b1',from:'6th October',to:'Maadi',t1:'07:30',t2:'08:30',days:[1,2,3]},{u:'b2',from:'6th October',to:'Maadi',t1:'07:00',t2:'09:00',days:[1,3]}],
+interest:[],friends:[],msgs:{},notif:[],tx:[{t:'Top-up (simulated)',a:250}],pts:{p1:[],p2:[],d1:[],d2:[]},rated:{},blocked:[],np:true,tab:'home'});
+let S=JSON.parse(localStorage.getItem(KEY)||'null')||seed();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const L=(a,e)=>S.lang==='ar'?a:e,me=()=>S.U[S.me],isD=()=>me().r==='d';
+const loc=x=>S.lang==='ar'?AR[x]||x:x,nm=u=>S.lang==='ar'?S.U[u].a:S.U[u].n,pay=p=>S.lang==='ar'?PAYAR[PAY.indexOf(p)]:p;
+const conf=t=>S.reqs.filter(r=>r.trip===t.id&&r.st==='accepted').reduce((a,r)=>a+r.n,0),rem=t=>t.seats-conf(t),pend=t=>S.reqs.filter(r=>r.trip===t.id&&r.st==='pending').length;
+const stLbl=t=>({published:rem(t)===0?['ممتلئة','Full']:['منشورة','Published'],started:['جارية','Active'],completed:['مكتملة','Completed'],cancelled:['ملغاة','Cancelled']}[t.st]||['','']);
+const push=(u,a,e)=>S.notif.unshift({u,a,e,id:S.n++});
+const go=s=>{S.stack.push(s);R()},bk=()=>{S.stack.pop();R()},tab=t=>{S.tab=t;S.stack=[t];R()};
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;$a.append(e);setTimeout(()=>e.remove(),2200)}
+const $a=document.getElementById('app');
+const ic={home:'<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>',trips:'<path d="M5 17h14M6 17l1.5-7h9L18 17M7 17v2M17 17v2"/>',buddy:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6M15 14c3 0 6 1 6 5"/>',msg:'<path d="M4 5h16v11H9l-5 4z"/>',wal:'<rect x="3" y="6" width="18" height="13" rx="3"/><path d="M16 12h5"/>',acc:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 4-7 8-7s8 2 8 7"/>'};
+const svg=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg>`;
+const opts=(arr,v,f)=>arr.map(x=>`<option value="${x}" ${x===v?'selected':''}>${f?f(x):x}</option>`).join('');
+const routeH=t=>`<div class="route"><i></i><div><div>${loc(t.from)}</div><div style="margin-top:8px">${loc(t.to)}</div></div></div>`;
+const inter=t=>/Alexandria|Hurghada/.test(t.from+t.to);
+function tripCard(t){const s=stLbl(t);return `<div class="card" onclick="go('trip:${t.id}')" style="cursor:pointer"><div class="row sp"><b>${nm(t.d)} ★${S.U[t.d].rt}</b><span class="tag ${t.st==='cancelled'?'er':'ok'}">${L(s[0],s[1])}</span></div>${routeH(t)}
+<div class="g mu"><span>${t.date===TODAY?L('غدًا','Tomorrow'):t.date} · ${t.time}</span><span>${L('متاح','Left')} ${rem(t)}/${t.seats}</span></div>
+<div class="g" style="margin-top:8px"><span class="tag">${t.price} ${L('ج.م','EGP')}</span>${t.women?`<span class="tag w">${L('للسيدات فقط','Women only')}</span>`:''}${t.lug?`<span class="tag">${L('أمتعة','Luggage')}</span>`:''}${inter(t)?`<span class="tag">${L('بين المدن','Intercity')}</span>`:''}${t.rec.length?`<span class="tag">${L('متكررة','Recurring')}</span>`:''}</div></div>`}
+function R(){
+ document.documentElement.dir=S.lang==='ar'?'rtl':'ltr';document.documentElement.lang=S.lang;
+ if(S.theme==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=S.theme;
+ const sc=S.stack[S.stack.length-1],[k,a]=sc.split(':');let body='';
+ const V={home:isD()?dHome:pHome,trips:myTrips,buddies,msgs,wallet,account,create,results,trip:tripView,chat,group};
+ body=(V[k]||pHome)(a);
+ const tabs=isD()?[['home',L('الرئيسية','Home'),'home'],['trips',L('رحلاتي','My Trips'),'trips'],['msgs',L('الرسائل','Messages'),'msg'],['wallet',L('المحفظة','Wallet'),'wal'],['account',L('حسابي','Account'),'acc']]:[['home',L('الرئيسية','Home'),'home'],['trips',L('رحلاتي','My Trips'),'trips'],['buddies',L('زملاء الطريق','Road Buddies'),'buddy'],['msgs',L('الرسائل','Messages'),'msg'],['account',L('حسابي','Account'),'acc']];
+ const top=S.stack.length>1?`<button class="back" onclick="bk()">${L('→ رجوع','← Back')}</button>`:'';
+ $a.innerHTML=`<div class="demo"><b>${L('تجريبي','DEMO')}</b><select aria-label="persona" onchange="S.me=this.value;S.tab='home';S.stack=['home'];save();R()">${Object.keys(S.U).filter(u=>/^[dp]/.test(u)).map(u=>`<option value="${u}" ${u===S.me?'selected':''}>${S.U[u].r==='d'?L('سائق: ','Driver: '):L('راكب: ','Passenger: ')}${nm(u)}</option>`).join('')}</select>
+ <button onclick="S.lang=S.lang==='ar'?'en':'ar';save();R()">${S.lang==='ar'?'EN':'ع'}</button><button onclick="S.theme={system:'light',light:'dark',dark:'system'}[S.theme];save();R()">${{system:'◐ ',light:'☀ ',dark:'☾ '}[S.theme]}${S.theme}</button><button onclick="if(confirm('${L('إعادة ضبط البيانات؟','Reset demo data?')}')){S=seed();save();R()}">${L('إعادة ضبط','Reset')}</button></div>
+ <main>${top}${body}</main><nav class="nav">${tabs.map(x=>`<button class="${S.tab===x[0]?'on':''}" onclick="tab('${x[0]}')">${svg(x[2])}${x[1]}</button>`).join('')}</nav>`;save();
+}
+/* ---------- DRIVER ---------- */
+function dHome(){const mine=S.trips.filter(t=>t.d===S.me),pr=S.reqs.filter(r=>r.st==='pending'&&mine.some(t=>t.id===r.trip));const u=me();
+ return `<h1>${L('أهلًا ','Hi ')}${nm(S.me)}</h1><p class="mu">${L('الحالة: ','Verification: ')}<span class="tag ${u.v==='approved'?'ok':'wa'}">${{approved:L('موثّق','Approved'),review:L('قيد المراجعة','Under review')}[u.v]}</span></p>
+ <div class="row" style="margin-top:12px"><div class="stat"><b>${mine.filter(t=>t.st==='published').length}</b>${L('منشورة','Published')}</div><div class="stat"><b>${pr.length}</b>${L('طلبات','Requests')}</div><div class="stat"><b>${S.tx.reduce((a,x)=>a+x.a,0)}</b>${L('محفظة','Wallet')}</div></div>
+ <button class="btn" onclick="newTrip()">＋ ${L('إنشاء رحلة جديدة','Create new trip')}</button>
+ ${pr.length?`<h2>${L('طلبات بانتظارك','Pending requests')}</h2>`+pr.map(r=>reqCard(r)).join(''):''}
+ <h2>${L('رحلاتي','My trips')}</h2>${mine.length?mine.map(tripCard).join(''):`<div class="em mu">${L('لا توجد رحلات بعد.','No trips yet.')}</div>`}`}
+function reqCard(r){const t=S.trips.find(x=>x.id===r.trip);const full=rem(t)<r.n;return `<div class="card"><div class="row sp"><b>${nm(r.p)} ★${S.U[r.p].rt}</b><span class="tag ${r.st==='accepted'?'ok':r.st==='pending'?'wa':'er'}">${{pending:L('قيد الانتظار','Pending'),accepted:L('مقبول','Accepted'),declined:L('مرفوض','Declined'),cancelled:L('ملغي','Cancelled')}[r.st]}</span></div>
+ <p class="mu">${loc(t.from)} ← ${loc(t.to)} · ${r.n} ${L('مقعد','seat(s)')} · ${pay(r.pay)}</p>${r.note?`<p>“${r.note}”</p>`:''}
+ ${r.st==='pending'&&t.st==='published'?`<div class="row" style="margin-top:8px"><button class="btn sm" ${full?'disabled style="opacity:.5"':''} onclick="resp(${r.id},'accepted')">${L('قبول','Accept')}</button><button class="btn sm s" onclick="resp(${r.id},'declined')">${L('رفض','Decline')}</button><button class="btn sm s" onclick="go('chat:r${r.id}')">${L('رسالة','Message')}</button></div>${full?`<p class="mu">${L('لا توجد مقاعد كافية','Not enough seats')}</p>`:''}`:''}</div>`}
+function resp(id,st){const r=S.reqs.find(x=>x.id===id),t=S.trips.find(x=>x.id===r.trip);
+ if(st==='accepted'){if(rem(t)<r.n||t.st!=='published')return toast(L('لا توجد مقاعد كافية','Not enough seats'));r.st=st;push(r.p,'تم قبول طلبك: '+AR[t.from]+' ← '+AR[t.to],'Request accepted: '+t.from+' → '+t.to);
+  if(!S.msgs['t'+t.id])S.msgs['t'+t.id]=[{u:t.d,x:'مرحبًا بالجميع! / Welcome aboard.'}];}
+ else{r.st=st;push(r.p,'تم رفض طلبك','Your request was declined')}
+ toast(st==='accepted'?L('تم القبول','Accepted'):L('تم الرفض','Declined'));R()}
+function newTrip(){const u=me();if(u.v!=='approved')return toast(L('الحساب قيد المراجعة — لا يمكن نشر رحلات','Account under review — publishing disabled'));
+ S.draft={from:LOC[0],to:LOC[1],date:TODAY,time:'08:00',seats:3,lug:true,women:false,pays:['Cash','InstaPay'],price:50,rec:[],note:'',step:0};go('create')}
+function create(){const d=S.draft;if(!d)return dHome();
+ const pk=(f)=>`<label>${f==='from'?L('من','From'):L('إلى','To')}</label><div class="row"><select onchange="S.draft.${f}=this.value;R()">${opts(LOC,d[f],loc)}</select></div>`;
+ if(d.step===1)return `<h1>${L('اختر على الخريطة','Pick on map')}</h1><p class="mu">${L('محاكاة — لا يتم استخدام GPS حقيقي','Simulation — no real GPS used')}</p><input placeholder="${L('ابحث عن موقع','Search location')}" oninput="mapQ(this.value)"><div class="map" id="map"><div class="pin" id="pin" style="left:${d.px||50}%;top:${d.py||50}%"></div></div><p class="mu" id="pl">${loc(d[d.pf])}</p><button class="btn" onclick="S.draft.step=0;R()">${L('تأكيد الموقع','Confirm location')}</button>${setTimeout(pinInit,0)&&''}`;
+ if(d.step===2)return `<h1>${L('مراجعة الرحلة','Review trip')}</h1>${tripCard({...d,id:0,d:S.me,st:'published'}).replace(/onclick="[^"]*"/,'')}<button class="btn" onclick="publish()">${L('نشر الرحلة','Publish trip')}</button><button class="btn s" onclick="S.draft.step=0;R()">${L('تعديل','Edit')}</button>`;
+ const w=me().g==='f';
+ return `<h1>${L('رحلة جديدة','New trip')}</h1>${pk('from')}<button class="chip" onclick="S.draft.pf='from';S.draft.step=1;R()">📍 ${L('اختر على الخريطة (WE School)','Pick on map (WE School)')}</button>${pk('to')}<button class="chip" onclick="S.draft.pf='to';S.draft.step=1;R()">📍 ${L('اختر على الخريطة','Pick on map')}</button>
+ <div class="row"><div style="flex:1"><label>${L('التاريخ','Date')}</label><input type="date" value="${d.date}" onchange="S.draft.date=this.value"></div><div style="flex:1"><label>${L('الوقت','Time')}</label><input type="time" value="${d.time}" onchange="S.draft.time=this.value"></div></div>
+ <div class="row"><div style="flex:1"><label>${L('المقاعد','Seats')}</label><select onchange="S.draft.seats=+this.value">${[1,2,3,4,5,6].map(n=>`<option ${n===d.seats?'selected':''}>${n}</option>`).join('')}</select></div><div style="flex:1"><label>${L('المساهمة (ج.م)','Contribution (EGP)')}</label><input type="number" min="0" value="${d.price}" oninput="S.draft.price=+this.value"></div></div>
+ <label>${L('طرق الدفع المقبولة','Accepted payments')}</label><div class="g">${PAY.map(p=>`<button class="chip ${d.pays.includes(p)?'on':''}" onclick="tg(S.draft.pays,'${p}')">${pay(p)}</button>`).join('')}</div>
+ <label>${L('خيارات','Options')}</label><div class="g"><button class="chip ${d.lug?'on':''}" onclick="S.draft.lug=!S.draft.lug;R()">${L('أمتعة متاحة','Luggage ok')}</button>${w?`<button class="chip ${d.women?'on':''}" onclick="S.draft.women=!S.draft.women;R()">${L('للسيدات فقط','Women only')}</button>`:''}</div>
+ <label>${L('تكرار (اختياري)','Recurring days (optional)')}</label><div class="g">${DAYS.map((x,i)=>`<button class="chip ${d.rec.includes(i)?'on':''}" onclick="tg(S.draft.rec,${i})">${L(DAYSAR[i],x)}</button>`).join('')}</div>
+ <label>${L('ملاحظات','Notes')}</label><input value="${d.note}" oninput="S.draft.note=this.value"><button class="btn" onclick="rev()">${L('مراجعة','Review')}</button>`}
+const tg=(a,v)=>{const i=a.indexOf(v);i<0?a.push(v):a.splice(i,1);R()};
+function rev(){const d=S.draft;if(d.from===d.to)return toast(L('نقطة البداية والوجهة متطابقتان','Start and destination are the same'));if(!d.pays.length)return toast(L('اختر طريقة دفع','Choose a payment method'));if(d.price<0||!d.date)return toast(L('تحقق من البيانات','Check the details'));d.step=2;R()}
+function publish(){const d={...S.draft};delete d.step;delete d.pf;delete d.px;delete d.py;S.trips.unshift({...d,id:S.n++,d:S.me,st:'published'});S.draft=null;S.stack=['home'];S.tab='home';toast(L('تم النشر','Published'));R()}
+const ZONES={'WE School, Sheikh Zayed':[50,50]};
+function mapQ(q){const m=LOC.find(l=>(l+AR[l]).toLowerCase().includes(q.toLowerCase())&&q);if(m){S.draft[S.draft.pf]=m;document.getElementById('pl').textContent=loc(m);const i=LOC.indexOf(m);S.draft.px=15+(i*37)%70;S.draft.py=20+(i*23)%60;const p=document.getElementById('pin');p.style.left=S.draft.px+'%';p.style.top=S.draft.py+'%'}}
+function pinInit(){const m=document.getElementById('map'),p=document.getElementById('pin');if(!m)return;let dn=0;
+ const mv=e=>{if(!dn)return;const r=m.getBoundingClientRect();const x=Math.min(100,Math.max(0,(e.clientX-r.left)/r.width*100)),y=Math.min(100,Math.max(0,(e.clientY-r.top)/r.height*100));p.style.left=x+'%';p.style.top=y+'%';S.draft.px=x;S.draft.py=y;
+ const i=Math.min(LOC.length-1,Math.floor(x/10));S.draft[S.draft.pf]=LOC[i];document.getElementById('pl').textContent=loc(LOC[i])};
+ p.onpointerdown=e=>{dn=1;p.setPointerCapture(e.pointerId)};p.onpointermove=mv;p.onpointerup=()=>dn=0}
+/* ---------- TRIP DETAIL ---------- */
+function tripView(id){const t=S.trips.find(x=>x.id==id);if(!t)return '';const s=stLbl(t),mineT=t.d===S.me;
+ let h=`<h1>${loc(t.from)} ← ${loc(t.to)}</h1><div class="card">${tripCard(t).replace(/^<div class="card"[^>]*>|<\/div>$/g,'')}<p class="mu" style="margin-top:6px">${S.U[t.d].car} · ${t.date} · ${(t.rec||[]).map(i=>L(DAYSAR[i],DAYS[i])).join(', ')}</p>${t.note?`<p>${t.note}</p>`:''}<p class="mu">${L('طرق الدفع: ','Payments: ')}${t.pays.map(pay).join('، ')}</p></div>
+ <div class="row"><div class="stat"><b>${t.seats}</b>${L('الإجمالي','Total')}</div><div class="stat"><b>${conf(t)}</b>${L('مؤكد','Confirmed')}</div><div class="stat"><b>${rem(t)}</b>${L('متبقي','Remaining')}</div><div class="stat"><b>${pend(t)}</b>${L('طلبات','Pending')}</div></div>`;
+ if(mineT){const rs=S.reqs.filter(r=>r.trip===t.id);h+=`<h2>${L('الطلبات','Requests')}</h2>${rs.length?rs.map(reqCard).join(''):`<div class="em mu">${L('لا توجد طلبات.','No requests yet.')}</div>`}`;
+  if(S.msgs['t'+t.id])h+=`<button class="btn s" onclick="go('chat:t${t.id}')">${L('محادثة الرحلة','Trip group chat')}</button>`;
+  if(t.st==='published')h+=`<button class="btn" onclick="startT(${t.id})">${L('بدء الرحلة','Start trip')}</button><button class="btn d" onclick="cancelT(${t.id})">${L('إلغاء الرحلة','Cancel trip')}</button>`;
+  if(t.st==='started')h+=`<button class="btn" onclick="completeT(${t.id})">${L('إنهاء الرحلة','Complete trip')}</button>`;}
+ else{const my=S.reqs.find(r=>r.trip===t.id&&r.p===S.me&&['pending','accepted'].includes(r.st));
+  if(my){h+=`<div class="card"><b>${L('طلبك: ','Your request: ')}</b><span class="tag ${my.st==='accepted'?'ok':'wa'}">${my.st==='accepted'?L('مقبول','Accepted'):L('قيد الانتظار','Pending')}</span><p class="mu">${my.n} ${L('مقعد','seat(s)')} · ${pay(my.pay)}</p></div><button class="btn s" onclick="go('chat:${my.st==='accepted'?'t'+t.id:'r'+my.id}')">${L('محادثة','Chat')}</button>${t.st==='published'?`<button class="btn d" onclick="cancelR(${my.id})">${L('إلغاء الطلب','Cancel request')}</button>`:''}`}
+  else if(t.st==='completed'){const done=S.reqs.some(r=>r.trip===t.id&&r.p===S.me&&r.st==='accepted');if(done)h+=S.rated[t.id+S.me]?`<p class="tag ok">${L('تم التقييم','Rated')}</p>`:`<h2>${L('قيّم الرحلة','Rate trip')}</h2><div class="g">${[1,2,3,4,5].map(n=>`<button class="chip" onclick="S.rated['${t.id+S.me}']=${n};toast('${L('شكرًا','Thanks')}');R()">${'★'.repeat(n)}</button>`).join('')}</div>`}
+  else if(t.st==='published'&&rem(t)>0){h+=`<h2>${L('اطلب مقعدًا','Request seats')}</h2><label>${L('المقاعد','Seats')}</label><select id="rn">${Array.from({length:rem(t)},(_,i)=>`<option>${i+1}</option>`).join('')}</select><label>${L('طريقة الدفع','Payment')}</label><select id="rp">${opts(t.pays,t.pays[0],pay)}</select><label>${L('ملاحظة قصيرة','Short note')}</label><input id="rno" maxlength="80"><button class="btn" onclick="reqSeat(${t.id})">${L('إرسال الطلب','Send request')}</button>`}
+  else h+=`<p class="mu">${L('لم تعد الرحلة تستقبل طلبات.','This trip is not accepting requests.')}</p>`;
+  h+=`<div class="row" style="margin-top:8px"><button class="btn sm s" onclick="toast('${L('تم الإبلاغ (محاكاة)','Reported (simulated)')}')">${L('إبلاغ','Report')}</button><button class="btn sm s" onclick="S.blocked.push('${t.d}');toast('${L('تم الحظر','Blocked')}');tab('home')">${L('حظر السائق','Block driver')}</button></div>`}
+ return h}
+function reqSeat(id){const t=S.trips.find(x=>x.id===id),n=+$('#rn').value;if(rem(t)<n||t.st!=='published')return toast(L('لا توجد مقاعد كافية','Not enough seats'));const rid=S.n++;S.reqs.push({id:rid,trip:id,p:S.me,n,pay:$('#rp').value,note:$('#rno').value,st:'pending'});push(t.d,'طلب مقعد جديد من '+S.U[S.me].a,'New seat request from '+S.U[S.me].n);toast(L('تم إرسال الطلب','Request sent'));R()}
+const $=s=>document.querySelector(s);
+function cancelR(id){S.reqs.find(r=>r.id===id).st='cancelled';R()}
+function startT(id){const t=S.trips.find(x=>x.id===id);if(conf(t)===0&&!confirm(L('لا يوجد ركاب مؤكدون. بدء الرحلة؟','No confirmed passengers. Start anyway?')))return;t.st='started';S.reqs.filter(r=>r.trip===id&&r.st==='pending').forEach(r=>r.st='declined');S.reqs.filter(r=>r.trip===id&&r.st==='accepted').forEach(r=>push(r.p,'بدأت الرحلة','Trip started'));R()}
+function cancelT(id){if(!confirm(L('إلغاء الرحلة؟','Cancel this trip?')))return;const t=S.trips.find(x=>x.id===id);t.st='cancelled';S.reqs.filter(r=>r.trip===id&&['pending','accepted'].includes(r.st)).forEach(r=>{r.st='cancelled';push(r.p,'تم إلغاء الرحلة','Trip cancelled by driver')});R()}
+function completeT(id){const t=S.trips.find(x=>x.id===id);t.st='completed';const acc=S.reqs.filter(r=>r.trip===id&&r.st==='accepted');const gross=acc.reduce((a,r)=>a+r.n*t.price,0),c=-Math.round(gross*S.comm/100);
+ S.tx.unshift({t:L('عمولة رحلة','Trip commission')+' ('+S.comm+'%)',a:c});[t.d,...acc.map(r=>r.p)].forEach(u=>{(S.pts[u]=S.pts[u]||[]).unshift({t:L('رحلة مكتملة','Completed trip'),a:S.ptsPerTrip})});acc.forEach(r=>push(r.p,'اكتملت الرحلة — قيّمها','Trip completed — rate it'));toast(L('اكتملت الرحلة','Trip completed'));R()}
+/* ---------- PASSENGER ---------- */
+function pHome(){const q=S.q||(S.q={from:LOC[0],to:LOC[1],date:TODAY,time:'08:00',n:1,inter:false}),pts=(S.pts[S.me]||[]).reduce((a,x)=>a+x.a,0);
+ const up=S.reqs.filter(r=>r.p===S.me&&['pending','accepted'].includes(r.st));
+ return `<h1>${L('أين وجهتك؟','Where to?')}</h1><p class="mu">${L('شاركْ رحلة سيارة مخططة مسبقًا — ليست خدمة تاكسي.','Share a planned car journey — not a taxi service.')}</p><div class="card"><label>${L('من','From')}</label><select onchange="S.q.from=this.value">${opts(LOC,q.from,loc)}</select><label>${L('إلى','To')}</label><select onchange="S.q.to=this.value">${opts(LOC,q.to,loc)}</select>
+ <div class="row"><div style="flex:1"><label>${L('التاريخ','Date')}</label><input type="date" value="${q.date}" onchange="S.q.date=this.value"></div><div style="flex:1"><label>${L('الوقت','Time')}</label><input type="time" value="${q.time}" onchange="S.q.time=this.value"></div></div>
+ <label>${L('المقاعد','Seats')}</label><select onchange="S.q.n=+this.value">${[1,2,3,4].map(n=>`<option ${n===q.n?'selected':''}>${n}</option>`).join('')}</select>
+ <div class="g" style="margin-top:10px"><button class="chip ${q.inter?'on':''}" onclick="S.q.inter=!S.q.inter;R()">${L('بين المدن فقط','Intercity only')}</button></div><button class="btn" onclick="search()">${L('ابحث عن رحلات','Search trips')}</button></div>
+ ${up.length?`<h2>${L('رحلاتك القادمة','Upcoming')}</h2>`+up.map(r=>tripCard(S.trips.find(t=>t.id===r.trip))).join(''):''}
+ <div class="card row sp"><div><b>${pts} ${L('نقطة','pts')}</b><div class="mu">${L('مكافآت الرحلات المكتملة','Completed-trip rewards')}</div></div><button class="btn sm s" onclick="tab('account')">${L('عرض','View')}</button></div>`}
+function match(){const q=S.q,dow=(new Date(q.date).getDay()+1)%7,w=me().g==='f';
+ return S.trips.filter(t=>t.st==='published'&&rem(t)>=q.n&&!S.blocked.includes(t.d)&&t.from===q.from&&t.to===q.to&&(t.date===q.date||t.rec.includes(dow))&&(!t.women||w)&&(!q.inter||inter(t))).sort((a,b)=>Math.abs(a.time.replace(':','')-q.time.replace(':',''))-Math.abs(b.time.replace(':','')-q.time.replace(':','')))}
+function search(){if(S.q.from===S.q.to)return toast(L('اختر مسارًا مختلفًا','Choose a different route'));go('results')}
+function results(){const r=match();return `<h1>${L('النتائج','Results')}</h1><p class="mu">${loc(S.q.from)} ← ${loc(S.q.to)}</p>${r.length?r.map(tripCard).join(''):`<div class="card em"><h2>${L('لا توجد سيارات مناسبة','No matching cars')}</h2><p class="mu">${L('جرّب وقتًا آخر، أو ابحث عن أشخاص يسلكون نفس الطريق.','Try another time, or find people going your way.')}</p><button class="btn" onclick="S.bf={from:S.q.from,to:S.q.to};tab('buddies')">${L('ابحث عن زملاء الطريق','Find Road Buddies going the same way')}</button></div>`}`}
+function myTrips(){if(isD())return `<h1>${L('رحلاتي','My trips')}</h1>`+(S.trips.filter(t=>t.d===S.me).map(tripCard).join('')||`<div class="em mu">${L('لا توجد رحلات','No trips')}</div>`);
+ const rs=S.reqs.filter(r=>r.p===S.me);return `<h1>${L('رحلاتي','My trips')}</h1>`+(rs.length?rs.map(r=>{const t=S.trips.find(x=>x.id===r.trip);return `<div>${tripCard(t)}<p class="mu" style="margin:-4px 0 12px">${L('حالة الطلب: ','Request: ')}<span class="tag ${r.st==='accepted'?'ok':r.st==='pending'?'wa':'er'}">${{pending:L('قيد الانتظار','Pending'),accepted:L('مقبول','Accepted'),declined:L('مرفوض','Declined'),cancelled:L('ملغي','Cancelled')}[r.st]}</span></p></div>`}).join(''):`<div class="em mu">${L('لم تطلب أي رحلة بعد.','No requests yet. Search for a trip from Home.')}</div>`)}
+/* ---------- ROAD BUDDIES ---------- */
+function buddies(){if(isD())return '';const f=S.bf||{from:LOC[0],to:LOC[1]},me1=S.interest.find(i=>i.u===S.me);S.bd=S.bd||{t1:'07:30',t2:'09:00',days:[1,2,3]};
+ const key=(b)=>b.from+'|'+b.to,grp=S.buddies.concat(S.interest).filter(b=>b.u!==S.me&&me1&&key(b)===key(me1));
+ return `<h1>${L('زملاء الطريق','Road Buddies')}</h1><p class="mu">${L('تواصل مع من يسلك طريقك وتنسقوا رحلة خارجية بأنفسكم. شاركْ لا تحجز رحلات خارجية.','Connect with people on your route and arrange an outside ride yourselves. Sharek does not book external rides.')}</p>
+ <div class="card"><label>${L('من','From')}</label><select onchange="S.bf={...S.bf,from:this.value}">${opts(LOC,f.from,loc)}</select><label>${L('إلى','To')}</label><select onchange="S.bf={...S.bf,to:this.value}">${opts(LOC,f.to,loc)}</select>
+ <div class="row"><div style="flex:1"><label>${L('من الساعة','From time')}</label><input type="time" value="${S.bd.t1}" onchange="S.bd.t1=this.value"></div><div style="flex:1"><label>${L('إلى الساعة','To time')}</label><input type="time" value="${S.bd.t2}" onchange="S.bd.t2=this.value"></div></div>
+ <label>${L('أيام الأسبوع','Days')}</label><div class="g">${DAYS.map((x,i)=>`<button class="chip ${S.bd.days.includes(i)?'on':''}" onclick="tg(S.bd.days,${i})">${L(DAYSAR[i],x)}</button>`).join('')}</div><button class="btn" onclick="saveInt()">${L('احفظ اهتمامي','Save my interest')}</button></div>
+ ${me1?`<h2>${L('أشخاص على نفس الطريق','People on your route')} (${grp.length})</h2>${grp.length?grp.map(b=>`<div class="card"><div class="row sp"><b>${nm(b.u)}</b><span class="tag">${b.t1}–${b.t2}</span></div><p class="mu">${b.days.map(i=>L(DAYSAR[i],DAYS[i])).join('، ')}</p><div class="row"><button class="btn sm s" onclick="go('chat:b${b.u}')">${L('رسالة تعارف','Say hi')}</button><button class="btn sm s" onclick="fr('${b.u}')">${S.friends.includes(b.u)?L('✓ صديق','✓ Friend'):L('حفظ كصديق','Save friend')}</button></div></div>`).join('')+`<button class="btn" onclick="go('group:${encodeURIComponent(key(me1))}')">${L('فتح مجموعة المسار','Open route group')}</button>`:`<div class="em mu">${L('لا أحد بعد. ستظهر هنا عند توافق مسار آخر.','No matches yet. They will appear here.')}</div>`}<button class="btn s" onclick="S.interest=S.interest.filter(i=>i.u!==S.me);R()">${L('إزالة اهتمامي','Remove my interest')}</button>`:`<div class="em mu">${L('احفظ اهتمامك لترى الأشخاص المطابقين. لن تُضاف لأي مجموعة تلقائيًا.','Save your interest to see matches. You are never added to a group automatically.')}</div>`}`}
+function saveInt(){const f=S.bf||{from:LOC[0],to:LOC[1]};if(f.from===f.to||!S.bd.days.length)return toast(L('اختر مسارًا وأيامًا','Choose a route and days'));S.interest=S.interest.filter(i=>i.u!==S.me);S.interest.push({u:S.me,from:f.from,to:f.to,...S.bd,days:[...S.bd.days]});toast(L('تم الحفظ','Saved'));R()}
+const fr=u=>{S.friends.includes(u)?S.friends=S.friends.filter(x=>x!==u):S.friends.push(u);R()};
+function group(k){k=decodeURIComponent(k);const [f,t]=k.split('|'),mem=S.buddies.concat(S.interest).filter(b=>b.from===f&&b.to===t);
+ return `<h1>${loc(f)} ← ${loc(t)}</h1><p class="mu">${L('مجموعة مسار — اتفقوا على رحلة خارجية بأنفسكم. لا تُعرض أرقام الهواتف.','Route group — arrange an outside ride yourselves. Phone numbers are never shown.')}</p><h2>${L('الأعضاء','Members')}</h2>${mem.map(b=>`<div class="card row sp"><span>${nm(b.u)} · ${b.t1}–${b.t2}</span><span class="mu">${b.days.map(i=>L(DAYSAR[i],DAYS[i])).join(' ')}</span></div>`).join('')}`+chat('g:'+k,1)}
+/* ---------- MESSAGES ---------- */
+function msgs(){const ns=S.notif.filter(n=>n.u===S.me);const chats=Object.keys(S.msgs).filter(k=>S.msgs[k].length);
+ return `<h1>${L('الرسائل','Messages')}</h1>${chats.length?chats.map(k=>`<div class="card" onclick="go('chat:${k}')" style="cursor:pointer"><b>${k[0]==='t'?L('محادثة الرحلة #','Trip chat #')+k.slice(1):k[0]==='r'?L('طلب #','Request #')+k.slice(1):k[0]==='b'?nm(k.slice(1)):L('مجموعة المسار','Route group')}</b><div class="mu">${S.msgs[k].slice(-1)[0].x}</div></div>`).join(''):`<p class="mu">${L('لا محادثات بعد.','No conversations yet.')}</p>`}
+ <h2>${L('الإشعارات','Notifications')}</h2>${S.np?(ns.length?ns.map(n=>`<div class="card">${L(n.a,n.e)}</div>`).join(''):`<p class="mu">${L('لا إشعارات.','No notifications.')}</p>`):`<p class="mu">${L('الإشعارات متوقفة.','Notifications are off.')}</p>`}`}
+function chat(k,emb){if(!S.msgs[k])S.msgs[k]=[];const m=S.msgs[k],lim=k[0]==='r'&&S.reqs.find(r=>'r'+r.id===k)?.st==='pending'&&m.filter(x=>x.u===S.me).length>=1;
+ return `${emb?'<h2>'+L('المحادثة','Chat')+'</h2>':`<h1>${L('محادثة','Chat')}</h1>`}${k[0]==='r'?`<p class="mu">${L('محادثة محدودة قبل القبول','Limited chat before acceptance')}</p>`:''}<div style="margin:10px 0">${m.length?m.map(x=>`<div class="bub ${x.u===S.me?'me':''}"><small>${nm(x.u)}</small><br>${x.x}</div>`).join(''):`<p class="mu">${L('ابدأ بتحية.','Say hello.')}</p>`}</div>${lim?`<p class="mu">${L('بانتظار رد السائق.','Waiting for the driver to respond.')}</p>`:`<div class="row"><input id="cm" placeholder="${L('اكتب رسالة','Message')}"><button class="btn sm" onclick="send('${k}')">${L('إرسال','Send')}</button></div>`}`}
+function send(k){const v=$('#cm').value.trim();if(!v)return;S.msgs[k].push({u:S.me,x:v});R()}
+/* ---------- WALLET / ACCOUNT ---------- */
+function wallet(){const bal=S.tx.reduce((a,x)=>a+x.a,0),pts=(S.pts[S.me]||[]).reduce((a,x)=>a+x.a,0);
+ return `<h1>${L('المحفظة','Wallet')}</h1><p class="mu">${L('محاكاة — لا توجد مدفوعات حقيقية','Simulated — no real payments')}</p><div class="card"><b style="font-size:30px">${bal} ${L('ج.م','EGP')}</b><button class="btn" onclick="S.tx.unshift({t:'${L('شحن (محاكاة)','Top-up (simulated)')}',a:100});R()">${L('شحن 100 ج.م','Top up 100 EGP')}</button></div>
+ <label>${L('نسبة العمولة % (قابلة للتعديل)','Commission % (configurable)')}</label><input type="number" min="0" max="50" value="${S.comm}" onchange="S.comm=+this.value;R()">
+ <h2>${L('المعاملات','Transactions')}</h2>${S.tx.map(x=>`<div class="card row sp"><span>${x.t}</span><b style="color:${x.a<0?'var(--er)':'var(--ok)'}">${x.a>0?'+':''}${x.a}</b></div>`).join('')}${rewards(pts)}`}
+function rewards(pts){const v=pts*S.ptsPerEGP;return `<h2>${L('النقاط والمكافآت','Points & rewards')}</h2><div class="card"><b>${pts} ${L('نقطة','pts')}</b> ≈ ${v} ${L('ج.م','EGP')}<p class="mu">${L('تُمنح عن الرحلات المكتملة فقط، وليس عن التقييمات.','Awarded for completed trips only — never for ratings.')}</p><label>${L('قيمة النقطة (قابلة للتعديل)','Points→EGP rate (configurable)')}</label><input type="number" step=".1" min="0" value="${S.ptsPerEGP}" onchange="S.ptsPerEGP=+this.value;R()"><button class="btn" onclick="redeem()">${L('استرداد كاش باك (محاكاة)','Redeem cashback (simulated)')}</button>${(S.pts[S.me]||[]).map(x=>`<div class="row sp mu" style="margin-top:6px"><span>${x.t}</span><span>${x.a>0?'+':''}${x.a}</span></div>`).join('')}</div>`}
+function redeem(){const l=S.pts[S.me]=S.pts[S.me]||[],p=l.reduce((a,x)=>a+x.a,0);if(p<=0)return toast(L('لا توجد نقاط','No points'));l.unshift({t:L('استرداد كاش باك','Cashback redeemed'),a:-p});if(isD())S.tx.unshift({t:L('كاش باك','Cashback'),a:p*S.ptsPerEGP});toast(L('تم الاسترداد (محاكاة)','Redeemed (simulated)'));R()}
+function account(){const u=me(),pts=(S.pts[S.me]||[]).reduce((a,x)=>a+x.a,0);
+ return `<h1>${nm(S.me)}</h1><p class="mu">${isD()?u.car+' · ★'+u.rt:L('راكب · ★','Passenger · ★')+u.rt}</p>
+ <div class="card"><label>${L('الاسم','Name')}</label><input value="${u.n}" onchange="S.U[S.me].n=this.value;S.U[S.me].a=this.value;toast('${L('تم الحفظ','Saved')}')"><label>${L('اللغة','Language')}</label><div class="g"><button class="chip ${S.lang==='ar'?'on':''}" onclick="S.lang='ar';R()">العربية</button><button class="chip ${S.lang==='en'?'on':''}" onclick="S.lang='en';R()">English</button></div><label>${L('المظهر','Theme')}</label><div class="g">${['light','dark','system'].map(x=>`<button class="chip ${S.theme===x?'on':''}" onclick="S.theme='${x}';R()">${{light:L('فاتح','Light'),dark:L('داكن','Dark'),system:L('النظام','System')}[x]}</button>`).join('')}</div><label>${L('الإشعارات','Notifications')}</label><button class="chip ${S.np?'on':''}" onclick="S.np=!S.np;R()">${S.np?L('مفعّلة','On'):L('متوقفة','Off')}</button></div>
+ ${isD()?'':rewards(pts)}<h2>${L('الأصدقاء المحفوظون','Saved friends')}</h2>${S.friends.length?S.friends.map(f=>`<div class="card">${nm(f)}</div>`).join(''):`<p class="mu">${L('لا أصدقاء بعد.','None yet.')}</p>`}
+ <h2>${L('مساعدة وخصوصية','Help & privacy')}</h2><div class="g"><button class="chip" onclick="toast('${L('صفحة المساعدة — قيد الإنشاء','Help — placeholder')}')">${L('مساعدة','Help')}</button><button class="chip" onclick="toast('${L('الخصوصية — نص تمهيدي','Privacy — placeholder')}')">${L('الخصوصية','Privacy')}</button><button class="chip" onclick="toast('${L('الشروط — نص تمهيدي','Terms — placeholder')}')">${L('الشروط','Terms')}</button></div>`}
+R();
+</script></body></html>
